@@ -7,8 +7,8 @@ from openai import OpenAI
 import utils as ut
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# # Load environment variables from .env file
+# load_dotenv()
 
 client = OpenAI(base_url="https://api.groq.com/openai/v1",
                 api_key=os.environ.get("OPENAI_API_KEY"))
