@@ -12,13 +12,14 @@ from groq import Groq
 load_dotenv()
 
 
-client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
-)
+# Validate GROQ_API_KEY
+groq_api_key = os.environ.get("GROQ_API_KEY")
+if not groq_api_key:
+    st.error("Error: 'GROQ_API_KEY' environment variable is not set.")
+    raise ValueError("The 'GROQ_API_KEY' environment variable must be set in your .env file or environment.")
 
-# client = OpenAI(base_url="https://api.groq.com/openai/v1",
-#                 api_key=os.environ.get("OPENAI_API_KEY"))
-
+# Initialize Groq client
+client = Groq(api_key=groq_api_key)
 
 def load_model(filename):
   with open(filename, "rb") as file:
