@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Model and data files
+*.pkl
+*.csv
