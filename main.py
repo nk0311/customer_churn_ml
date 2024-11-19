@@ -32,21 +32,21 @@ if not groq_api_key:
 client = Groq(api_key=groq_api_key)
 
 
-def load_model(filename):
-  with open(filename, "rb") as file:
-    return pickle.load(file)
+# def load_model(filename):
+#   with open(filename, "rb") as file:
+#     return pickle.load(file)
 
 
-# def load_model(file_path):
-#     try:
-#         with open(file_path, 'rb') as file:
-#             return pickle.load(file)
-#     except FileNotFoundError:
-#         print(f"Error: File '{file_path}' not found.")
-#     except pickle.UnpicklingError:
-#         print(f"Error: File '{file_path}' is not a valid pickle file.")
-#     except Exception as e:
-#         print(f"An unexpected error occurred: {e}")
+def load_model(file_path):
+    try:
+        with open(file_path, 'rb') as file:
+            return pickle.load(file)
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+    except pickle.UnpicklingError:
+        print(f"Error: File '{file_path}' is not a valid pickle file.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 
 xgboost_model = load_model('xgb_model.pkl')
