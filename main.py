@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(base_url="https://api.groq.com/openai/v1",
-                api_key=os.environ.get("GROQ_API_KEY"))
+                api_key=os.environ.get("OPENAI_API_KEY"))
 
 
 def load_model(filename):
