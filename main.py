@@ -9,17 +9,28 @@ from dotenv import load_dotenv
 from groq import Groq
 
 
-load_dotenv()
+# load_dotenv()
 
 
-# Validate GROQ_API_KEY
-groq_api_key = os.environ.get("GROQ_API_KEY")
+# # Validate GROQ_API_KEY
+# groq_api_key = os.environ.get("GROQ_API_KEY")
+# if not groq_api_key:
+#     st.error("Error: 'GROQ_API_KEY' environment variable is not set.")
+#     raise ValueError("The 'GROQ_API_KEY' environment variable must be set in your .env file or environment.")
+
+# # Initialize Groq client
+# client = Groq(api_key=groq_api_key)
+
+# Get the API key from Streamlit secrets
+groq_api_key = st.secrets["GROQ_API_KEY"]
+
 if not groq_api_key:
-    st.error("Error: 'GROQ_API_KEY' environment variable is not set.")
-    raise ValueError("The 'GROQ_API_KEY' environment variable must be set in your .env file or environment.")
+    st.error("Error: 'GROQ_API_KEY' is not set in the Streamlit secrets.")
+    raise ValueError("The 'GROQ_API_KEY' must be set in the Streamlit secrets.")
 
 # Initialize Groq client
 client = Groq(api_key=groq_api_key)
+
 
 def load_model(filename):
   with open(filename, "rb") as file:
