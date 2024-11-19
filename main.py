@@ -9,9 +9,16 @@ from dotenv import load_dotenv
 
 # # Load environment variables from .env file
 # load_dotenv()
+load_dotenv()
+api_key = os.getenv('OPENAI_API_KEY')
 
-client = OpenAI(base_url="https://api.groq.com/openai/v1",
-                api_key=os.environ.get("OPENAI_API_KEY"))
+client = OpenAI(
+    base_url='https://api.groq.com/openai/v1',
+    api_key=api_key)
+
+
+# client = OpenAI(base_url="https://api.groq.com/openai/v1",
+#                 api_key=os.environ.get("OPENAI_API_KEY"))
 
 
 def load_model(filename):
