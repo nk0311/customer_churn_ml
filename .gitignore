@@ -12,6 +12,4 @@ __pycache__/
 *.log
 *.tmp
 
-# Model and data files
-*.pkl
-*.csv
+
