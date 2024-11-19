@@ -6,21 +6,15 @@ import os
 from openai import OpenAI
 import utils as ut
 from dotenv import load_dotenv
+from groq import Groq
 
-# # Load environment variables from .env file
-# load_dotenv()
-# load_dotenv()
-# api_key = os.getenv('OPENAI_API_KEY')
 
-# client = OpenAI(
-#     base_url='https://api.groq.com/openai/v1',
-#     api_key=api_key)
+load_dotenv()
 
-client = OpenAI(
-    base_url="https://api.groq.com/openai/v1",
-    api_key=st.secrets["OPENAI_API_KEY"]
+
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
 )
-
 
 # client = OpenAI(base_url="https://api.groq.com/openai/v1",
 #                 api_key=os.environ.get("OPENAI_API_KEY"))
